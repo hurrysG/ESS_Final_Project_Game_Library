@@ -1282,26 +1282,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\harri\\.nuget\\packages\\": {}
+    "/Users/xavier/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\harri\\Desktop\\Sheridan Year 3\\Enterprise Software Systems\\Deliverables\\Final Project\\FinalProj\\FINALPROJ\\FINALPROJ.csproj",
+      "projectUniqueName": "/Users/xavier/Xavier/Sheridan College/Mobile Computing/Semester 5/02_Enterprise Software Systems_PROG 30000/Assignments/Group Project/Code/ESS_Final_Project_Game_Library/FINALPROJ/FINALPROJ.csproj",
       "projectName": "FINALPROJ",
-      "projectPath": "C:\\Users\\harri\\Desktop\\Sheridan Year 3\\Enterprise Software Systems\\Deliverables\\Final Project\\FinalProj\\FINALPROJ\\FINALPROJ.csproj",
-      "packagesPath": "C:\\Users\\harri\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\harri\\Desktop\\Sheridan Year 3\\Enterprise Software Systems\\Deliverables\\Final Project\\FinalProj\\FINALPROJ\\obj\\",
+      "projectPath": "/Users/xavier/Xavier/Sheridan College/Mobile Computing/Semester 5/02_Enterprise Software Systems_PROG 30000/Assignments/Group Project/Code/ESS_Final_Project_Game_Library/FINALPROJ/FINALPROJ.csproj",
+      "packagesPath": "/Users/xavier/.nuget/packages/",
+      "outputPath": "/Users/xavier/Xavier/Sheridan College/Mobile Computing/Semester 5/02_Enterprise Software Systems_PROG 30000/Assignments/Group Project/Code/ESS_Final_Project_Game_Library/FINALPROJ/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\harri\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "/Users/xavier/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net5.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -1357,7 +1355,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.400\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.400/RuntimeIdentifierGraph.json"
       }
     }
   }
