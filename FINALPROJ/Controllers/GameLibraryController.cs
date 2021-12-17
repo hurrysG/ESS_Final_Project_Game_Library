@@ -230,7 +230,6 @@ namespace FINALPROJ.Controllers
         {
             Guid guid1;
             Guid guid2;
-
             try
             {
                 guid1 = new Guid(id1);
@@ -271,19 +270,57 @@ namespace FINALPROJ.Controllers
         [HttpPut]
         public async Task<IActionResult> UpdateGame([FromBody] GameDTO gameDto)
         {
-            // Todo: Finish this method
-            System.Console.WriteLine(gameDto.Id.ToString());
-            System.Console.WriteLine(gameDto.Name);
-            System.Console.WriteLine(gameDto.Genre);
-            System.Console.WriteLine(gameDto.Console);
-            System.Console.WriteLine(gameDto.DateAdded);
-            foreach (var developer in gameDto.Developers)
+            Guid gameId;
+            try
             {
-                System.Console.WriteLine(developer.Id);
-                System.Console.WriteLine(developer.Name);
+                gameId = new Guid(gameDto.Id);
             }
-            System.Console.WriteLine(gameDto.Publisher.Name);
-            return Ok();
+            catch (Exception)
+            {
+                dynamic res = new
+                {
+                    message = "Invalid Id"
+                };
+                return BadRequest(res);
+            }
+
+            Game game = _context.Games.Include(g => g.Developer).Include(g => g.Publisher).FirstOrDefault(g => g.Id.Equals(gameId));
+
+            if (game != null)
+            {
+                return NotFound(new
+                {
+                    message = "Game not found"
+                });
+            }
+            else
+            {
+                game.Name = gameDto.Name;
+                game.Genre = gameDto.Genre;
+                game.Console = gameDto.Console;
+                game.dateAdded = gameDto.DateAdded;
+                game.Developer = new List<Developer>();
+                foreach (var d in game.Developer)
+                {
+                    game.Developer.Remove(d);
+                }
+
+                foreach (var d in gameDto.Developers)
+                {
+                    var dev = _context.Developers.FirstOrDefault(developer => developer.Id.Equals(new Guid(d.Id)));
+                    if (dev != null)
+                    {
+                        game.Developer.Add(dev);
+                    }
+                }
+
+                var pub = _context.Publishers.FirstOrDefault(p => p.Id.Equals(new Guid(gameDto.Publisher.Id)));
+                game.Publisher = pub;
+
+                await _context.SaveChangesAsync();
+
+                return Ok(GameDTO.ParseFrom(game));
+            }
         }
 
     }
