@@ -267,5 +267,24 @@ namespace FINALPROJ.Controllers
             }
         }
 
+
+        [HttpPut]
+        public async Task<IActionResult> UpdateGame([FromBody] GameDTO gameDto)
+        {
+            // Todo: Finish this method
+            System.Console.WriteLine(gameDto.Id.ToString());
+            System.Console.WriteLine(gameDto.Name);
+            System.Console.WriteLine(gameDto.Genre);
+            System.Console.WriteLine(gameDto.Console);
+            System.Console.WriteLine(gameDto.DateAdded);
+            foreach (var developer in gameDto.Developers)
+            {
+                System.Console.WriteLine(developer.Id);
+                System.Console.WriteLine(developer.Name);
+            }
+            System.Console.WriteLine(gameDto.Publisher.Name);
+            return Ok();
+        }
+
     }
 }
