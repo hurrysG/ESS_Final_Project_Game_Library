@@ -1287,11 +1287,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\harri\\Desktop\\Sheridan Year 3\\Enterprise Software Systems\\Deliverables\\Final Project\\FinalProj\\FINALPROJ\\FINALPROJ.csproj",
+      "projectUniqueName": "C:\\Users\\harri\\Desktop\\Sheridan Year 3\\Term 1\\Enterprise Software Systems\\Deliverables\\Final Project\\FinalProj\\FINALPROJ\\FINALPROJ.csproj",
       "projectName": "FINALPROJ",
-      "projectPath": "C:\\Users\\harri\\Desktop\\Sheridan Year 3\\Enterprise Software Systems\\Deliverables\\Final Project\\FinalProj\\FINALPROJ\\FINALPROJ.csproj",
+      "projectPath": "C:\\Users\\harri\\Desktop\\Sheridan Year 3\\Term 1\\Enterprise Software Systems\\Deliverables\\Final Project\\FinalProj\\FINALPROJ\\FINALPROJ.csproj",
       "packagesPath": "C:\\Users\\harri\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\harri\\Desktop\\Sheridan Year 3\\Enterprise Software Systems\\Deliverables\\Final Project\\FinalProj\\FINALPROJ\\obj\\",
+      "outputPath": "C:\\Users\\harri\\Desktop\\Sheridan Year 3\\Term 1\\Enterprise Software Systems\\Deliverables\\Final Project\\FinalProj\\FINALPROJ\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\harri\\AppData\\Roaming\\NuGet\\NuGet.Config",

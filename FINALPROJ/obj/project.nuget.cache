@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "S8JSsrhmSxHhXeSLbRTE2rhES+A0C6pDy/cFPT7+gp0DzJXNDLhsTziC0Fqt3xG24furjFgJAij+Xo0t4Am2Ew==",
+  "dgSpecHash": "u0pF+LSJxjVfmAUHGMUp2d7IT3GkiSw5WfJ5KZvJ0J3N40fIfPoru8L32C8aM5ktkBc3/B6DwzDFSbdnHyhJTg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\harri\\Desktop\\Sheridan Year 3\\Enterprise Software Systems\\Deliverables\\Final Project\\FinalProj\\FINALPROJ\\FINALPROJ.csproj",
+  "projectFilePath": "C:\\Users\\harri\\Desktop\\Sheridan Year 3\\Term 1\\Enterprise Software Systems\\Deliverables\\Final Project\\FinalProj\\FINALPROJ\\FINALPROJ.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\harri\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\harri\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",

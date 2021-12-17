@@ -11,8 +11,8 @@ namespace FINALPROJ.Models.Entities
         public String Name { get; set; }
         public String Genre { get; set; }
         public String Console { get; set; }
-        public DateTime dateAdded { get; set; }
-        public List<Developer> Developer { get; set; }
-        public Publisher Publisher { get; set; }
+        public DateTime DateAdded { get; set; }
+        public List<Developer> Developers { get; set; }
+        public List<Publisher> Publishers { get; set; }
     }
 }
