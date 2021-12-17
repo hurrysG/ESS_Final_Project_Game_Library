@@ -6,6 +6,7 @@ using FINALPROJ.Models;
 using FINALPROJ.Models.DTOs;
 using FINALPROJ.Models.Entities;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace FINALPROJ.Controllers
 {
@@ -212,6 +213,49 @@ namespace FINALPROJ.Controllers
                     messsage = "Successfully deleted"
                 };
                 return Ok(res);
+            }
+            else
+            {
+                dynamic res = new
+                {
+                    message = "Game not found"
+                };
+                return NotFound(res);
+            }
+        }
+
+        [HttpGet]
+        [Route("compare/{id1}/{id2}")]
+        public IActionResult CompareTwoGames(string id1, string id2)
+        {
+            Guid guid1;
+            Guid guid2;
+
+            try
+            {
+                guid1 = new Guid(id1);
+                guid2 = new Guid(id2);
+            }
+            catch (Exception)
+            {
+                dynamic res = new
+                {
+                    message = "Invalid Id"
+                };
+                return BadRequest(res);
+            }
+
+            Game game1 = _context.Games.Include(g => g.Developer).Include(g => g.Publisher).FirstOrDefault(g => g.Id.Equals(guid1));
+            Game game2 = _context.Games.Include(g => g.Developer).Include(g => g.Publisher).FirstOrDefault(g => g.Id.Equals(guid2));
+
+            if (game1 != null && game2 != null)
+            {
+                List<GameDTO> list = new List<GameDTO>(){
+                    GameDTO.ParseFrom(game1),
+                    GameDTO.ParseFrom(game2)
+                };
+
+                return Ok(list);
             }
             else
             {
