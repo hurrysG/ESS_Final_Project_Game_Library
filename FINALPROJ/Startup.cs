@@ -26,10 +26,15 @@ namespace FINALPROJ
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-
             services.AddControllers();
             services.AddEntityFrameworkSqlite().AddDbContext<DataContext>();
-            
+            services.AddCors(options =>
+            {
+                options.AddPolicy("AllowAllPolicy", policy =>
+                {
+                    policy.AllowAnyHeader().AllowAnyOrigin().AllowAnyMethod();
+                });
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -41,6 +46,8 @@ namespace FINALPROJ
             }
 
             app.UseRouting();
+
+            app.UseCors("AllowAllPolicy");
 
             app.UseAuthorization();
 
