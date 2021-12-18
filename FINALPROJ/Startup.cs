@@ -29,6 +29,11 @@ namespace FINALPROJ
 
             services.AddControllers();
             services.AddEntityFrameworkSqlite().AddDbContext<DataContext>();
+            services.AddCors(options => {
+                options.AddPolicy("AllowAllPolicy",policy =>{
+                    policy.AllowAnyHeader().AllowAnyOrigin().AllowAnyMethod();
+                });
+            });
             
         }
 
@@ -41,7 +46,7 @@ namespace FINALPROJ
             }
 
             app.UseRouting();
-
+            app.UseCors("AllowAllPolicy");
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>

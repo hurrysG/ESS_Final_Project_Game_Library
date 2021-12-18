@@ -22,26 +22,32 @@ namespace FINALPROJ.Controllers
 
         }
 
+        [HttpGet]
+        public IActionResult GetAllGames(){
+            return Ok(_context.Games);
+
+        }
+
         [HttpPost]
         public async Task<IActionResult> CreateGame(
-            string name, string genre, string console,
-            DateTime dateAdded, List<Developer> developers,
-            List<Publisher> publishers
+                Game game
         ){
-            if(string.IsNullOrEmpty(name))
+            if(string.IsNullOrEmpty(game.Name))
                 return BadRequest();
 
-            var game = new Game{
-                Name = name,
-                Genre = genre,
-                Console = console,
-                DateAdded = dateAdded,
-                Developers = developers,
-                Publishers = publishers
-            };
+                
+
+            // var game = new Game{
+            //     Name = name,
+            //     Genre = genre,
+            //     Console = console,
+            //     DateAdded = dateAdded,
+            //     Developers = developers,
+            //     Publishers = publishers
+            // };
             //Neccessary?
-            game.Developers.AddRange(developers);
-            game.Publishers.AddRange(publishers);
+            // game.Developers.AddRange(developers);
+            // game.Publishers.AddRange(publishers);
             await _context.AddAsync(game);
             await _context.SaveChangesAsync();
             return Ok(game);
@@ -50,29 +56,32 @@ namespace FINALPROJ.Controllers
 
         [HttpGet("{name}")]
         public async Task<IActionResult> SearchGame(string name){
-            
+            var gameList = await _context.Games.ToListAsync();
             try{
-                var searchResult = await _context.Games.FindAsync(name);
+                var searchResult = gameList.FirstOrDefault(x=> x.Name == name);
+            
                 if (searchResult == null)
-                    return NotFound();
-                return Ok(name);
+                    return NotFound(searchResult);
+                return Ok($"This works : {searchResult.Name}");
             }catch (SystemException){
                 return BadRequest();
             }
         }
 
-        [HttpGet("{genre}")]
+        [HttpGet("genre/{genre}")]
         public async Task<IActionResult> GetGameGenre(string genre){
             var gameList = await _context.Games.ToListAsync();
             try{
                 var result = GameHelper.GetGameByGenre(gameList,genre);
+
                 return Ok(result);
+                
             }catch (SystemException){
                 return BadRequest();
             }
         }
 
-        [HttpGet("{console}")]
+        [HttpGet("console/{console}")]
         public async Task<IActionResult> GetGameConsole(string console){
             var gameList = await _context.Games.ToListAsync();
             try{
@@ -83,7 +92,7 @@ namespace FINALPROJ.Controllers
             }
         }
 
-        [HttpGet("{developers}")]
+        [HttpGet("developers/{developer}")]
         public async Task<IActionResult> GetGameDeveloper(string developer){
             var developerList = await _context.Developers.ToListAsync();
             var result = GameHelper.GetGameByDeveloper(developerList, developer);
@@ -91,12 +100,12 @@ namespace FINALPROJ.Controllers
 
         }
 
-        [HttpGet("{publishers")]
-        public async Task<IActionResult> GetGamePublisher(string publisher){
-            var publisherList = await _context.Publishers.ToListAsync();
-            var result = GameHelper.GetGameByPublisher(publisherList, publisher);
-            return Ok(result);
-        }
+        // [HttpGet("publishers")]
+        // public async Task<IActionResult> GetGamePublisher(string publisher){
+        //     var publisherList = await _context.Publishers.ToListAsync();
+        //     var result = GameHelper.GetGameByPublisher(publisherList, publisher);
+        //     return Ok(result);
+        // }
 
   
 

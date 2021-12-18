@@ -7,6 +7,7 @@ namespace FINALPROJ.Models.Entities
 {
     public class Developer
     {
+        public Guid id { get; set; }
         public string Name { get; set; }
     }
 }

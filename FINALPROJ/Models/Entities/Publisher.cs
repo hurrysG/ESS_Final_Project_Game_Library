@@ -7,6 +7,7 @@ namespace FINALPROJ.Models.Entities
 {
     public class Publisher
     {
+        public Guid id { get; set; }
         public string Name { get; set; }
     }
 }

@@ -1,0 +1,6 @@
+c:\Users\harri\Desktop\Sheridan Year 3\Term 1\Enterprise Software Systems\Deliverables\Final Project\FinalProj\TestFinalProj\bin\Debug\net5.0\CoverletSourceRootsMapping
+c:\Users\harri\Desktop\Sheridan Year 3\Term 1\Enterprise Software Systems\Deliverables\Final Project\FinalProj\TestFinalProj\obj\Debug\net5.0\TestFinalProj.csproj.AssemblyReference.cache
+c:\Users\harri\Desktop\Sheridan Year 3\Term 1\Enterprise Software Systems\Deliverables\Final Project\FinalProj\TestFinalProj\obj\Debug\net5.0\TestFinalProj.GeneratedMSBuildEditorConfig.editorconfig
+c:\Users\harri\Desktop\Sheridan Year 3\Term 1\Enterprise Software Systems\Deliverables\Final Project\FinalProj\TestFinalProj\obj\Debug\net5.0\TestFinalProj.AssemblyInfoInputs.cache
+c:\Users\harri\Desktop\Sheridan Year 3\Term 1\Enterprise Software Systems\Deliverables\Final Project\FinalProj\TestFinalProj\obj\Debug\net5.0\TestFinalProj.AssemblyInfo.cs
+c:\Users\harri\Desktop\Sheridan Year 3\Term 1\Enterprise Software Systems\Deliverables\Final Project\FinalProj\TestFinalProj\obj\Debug\net5.0\TestFinalProj.csproj.CoreCompileInputs.cache

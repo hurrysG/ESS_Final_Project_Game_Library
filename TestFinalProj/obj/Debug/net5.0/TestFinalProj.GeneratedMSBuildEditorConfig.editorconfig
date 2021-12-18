@@ -1,10 +1,10 @@
 is_global = true
 build_property.TargetFramework = net5.0
 build_property.TargetPlatformMinVersion = 
-build_property.UsingMicrosoftNETSdkWeb = true
+build_property.UsingMicrosoftNETSdkWeb = 
 build_property.ProjectTypeGuids = 
 build_property.PublishSingleFile = 
 build_property.IncludeAllContentForSelfExtract = 
 build_property._SupportedPlatformList = Android,iOS,Linux,macOS,Windows
-build_property.RootNamespace = FINALPROJ
-build_property.ProjectDir = C:\Users\harri\Desktop\Sheridan Year 3\Term 1\Enterprise Software Systems\Deliverables\Final Project\FinalProj\FINALPROJ\
+build_property.RootNamespace = TestFinalProj
+build_property.ProjectDir = c:\Users\harri\Desktop\Sheridan Year 3\Term 1\Enterprise Software Systems\Deliverables\Final Project\FinalProj\TestFinalProj\
