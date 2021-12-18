@@ -86,8 +86,8 @@ document.getElementById("add-button").addEventListener("click", () =>{
         name: document.getElementById("gameName").value,
         genre: document.getElementById("gameGenre").value,
         console: document.getElementById("gameConsole").value,
-        developers: document.getElementById("gameDevelopers").value,
-        publishers: document.getElementById("gamePublishers").value
+        //developers: document.getElementById("gameDevelopers").value,
+        //publishers: document.getElementById("gamePublishers").value
     })
 })
     .then(response => response.json())
@@ -100,5 +100,75 @@ document.getElementById("add-button").addEventListener("click", () =>{
         document.getElementById("gamePublishers").value = "";
     })
     .catch(error => console.error('Unable to add item.', error));
+});
+
+function getGamesbyName(game){
+    const outerUL = document.createElement('ul');
+    //outerUL.setAttribute("id", "outerUL");
+    //span.classList.add("close");
+    //span.innerHTML = "&#x2715"
+    outerUL.setAttribute("data-id", game.id);
+    document.getElementById("searchDiv").appendChild(outerUL);
+
+
+    const span = document.createElement('span');
+    span.classList.add("close");
+    span.innerHTML = "&#x2715"
+    span.setAttribute("data-id", game.id);
+
+    const outerLI = document.createElement('li');
+    outerLI.innerHTML = game.name;
+    outerLI.setAttribute("data-id", game.id);
+    outerLI.appendChild(span);
+    outerUL.appendChild(outerLI);
+
+    const innerLiTwo = document.createElement("li");
+    innerLiTwo.innerHTML = game.console;
+    innerLiTwo.setAttribute("data-id", game.id);
+    innerLiTwo.appendChild(innerSpan);
+    const innerLiThree = document.createElement("li");
+    innerLiThree.innerHTML = game.developers;
+    innerLiThree.setAttribute("data-id", game.id);
+    innerLiThree.appendChild(innerSpan);
+    const innerLiFour = document.createElement("li");
+    innerLiFour.innerHTML = game.publishers;
+    innerLiFour.setAttribute("data-id", game.id);
+    innerLiFour.appendChild(innerSpan);
+
+    
+    innerUL.appendChild(innerLi);
+    innerUL.appendChild(innerLiTwo);
+    innerUL.appendChild(innerLiThree);
+    innerUL.appendChild(innerLiFour);
+    
+
+
+}
+
+document.getElementById("search-button").addEventListener("click", () =>{
+    const name = document.getElementById("searchGame").value;
+    fetch(`http://localhost:5000/gamelibrary/${name}`, {
+        method: "GET",
+        headers: {
+            "content-type": "application/json"
+        }
+        // body: JSON.stringify({
+        //     name: document.getElementById("gameName").value,
+        //     genre: document.getElementById("gameGenre").value,
+        //     console: document.getElementById("gameConsole").value,
+        //     developers: document.getElementById("gameDevelopers").value,
+        //     publishers: document.getElementById("gamePublishers").value
+        // })
+    })
+        .then(response => response.json())
+        .then(data => {
+            getGamesbyName(data);
+            document.getElementById("gameName").value = "";
+            document.getElementById("gameGenre").value = "";
+            document.getElementById("gameConsole").value = "";
+            document.getElementById("gameDevelopers").value = "";
+            document.getElementById("gamePublishers").value = "";
+        });
+
 });
 

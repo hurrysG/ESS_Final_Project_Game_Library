@@ -62,7 +62,7 @@ namespace FINALPROJ.Controllers
             
                 if (searchResult == null)
                     return NotFound(searchResult);
-                return Ok($"This works : {searchResult.Name}");
+                return Ok(searchResult);
             }catch (SystemException){
                 return BadRequest();
             }
