@@ -14,12 +14,85 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js"
         integrity="sha384-VHvPCCyXqtD5DqJeNxl2dtTyhF78xXNXdkwX1CZeRusQfRKp+tA7hAShOK/B/fQ2"
         crossorigin="anonymous"></script>
-
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/yuanfu.css">
+    <script type="text/javascript" src="/js/yuanfu.js"></script>
     <title>Update Game</title>
 </head>
 
 <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">Game Library</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" href="/">Home<span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/DeveloperList.html">Developer Management</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Publisher Management</a>
+                </li>
+                <!-- <li class="nav-item">
+                    <a class="nav-link disabled">Disabled</a>
+                </li> -->
+            </ul>
+        </div>
+    </nav>
+    <div id="game-existing" class="container">
+        <div class="row justify-content-center">
+            <div id="update-form" class="col-10 m-3">
+                <form id="form-update-game">
+                    <div class="form-group">
+                        <label for="inputGameName">Game Name</label>
+                        <input type="input" class="form-control" id="inputGameName" aria-describedby="gameHelp">
+                    </div>
+                    <div class="form-group">
+                        <label for="inputGenre">Genre</label>
+                        <input type="input" class="form-control" id="inputGenre" aria-describedby="genreHelp">
+                    </div>
+                    <div class="form-group">
+                        <label for="inputConsole">Console</label>
+                        <input type="input" class="form-control" id="inputConsole" aria-describedby="consoleHelp">
+                    </div>
+                    <div class="form-group" name="developers">
+                        <label for="inputDevelopers">Developers</label>
+                        <div class="form-group" id="selectDeveloper">
+                            <!-- <div class="row">
+                                <select class="form-control col-10 m-3" name="developer">
+                                    <option value="123123123123">John</option>
+                                </select>
+                                <button type="button" class="btn btn-danger col-1 m-3"
+                                    onclick="removeDeveloper()">Remove</button>
+                            </div> -->
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputPublisher">Publisher</label>
+                        <select class="form-control" id="selectPublisher">
+                        </select>
+                    </div>
 
+                    <button type="button" id="btnUpdate" class="btn btn-primary" onclick="update()">Update</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div id="game-not-existing" class="container justify-content-center">
+        <div class="col-10 m-3">
+            <h1>Game not found</h1>
+        </div>
+    </div>
+
+    <script>
+        initUpdateGamePage();
+    </script>
 </body>
 
 </html>
