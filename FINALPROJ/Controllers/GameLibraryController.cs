@@ -185,6 +185,38 @@ namespace FINALPROJ.Controllers
             return Ok();
         }
 
+        [HttpGet]
+        [Route("{id}")]
+        public IActionResult GetGame(string id)
+        {
+            Guid guid;
+            try
+            {
+                guid = new Guid(id);
+            }
+            catch (Exception)
+            {
+                dynamic res = new
+                {
+                    message = "Invalid id"
+                };
+                return BadRequest(res);
+            }
+            var game = _context.Games.Include(g => g.Developer).Include(g => g.Publisher).FirstOrDefault(g => g.Id.Equals(guid));
+
+            if (game != null)
+            {
+                return Ok(GameDTO.ParseFrom(game));
+            }
+            else
+            {
+                return NotFound(new
+                {
+                    message = "Game not found"
+                });
+            }
+        }
+
         [HttpDelete]
         [Route("{id}")]
         public async Task<IActionResult> DeleteGame(string id)
